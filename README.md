@@ -9,12 +9,12 @@
 
 *Equal contribution
 
-![](https://giannisdaras.github.io/images/image_worth.png)
+![](figs/image_worth.png)
 </div>
 
-```
-The quality of generative models depends on the quality of the data they are trained on. Creating large-scale, high-quality datasets is often expensive and sometimes impossible, e.g. in certain scientific applications where there is no access to clean data due to physical or instrumentation constraints. Ambient Diffusion and related frameworks train diffusion models with solely corrupted data (which are usually cheaper to acquire) but ambient models significantly underperform models trained on clean data. We study this phenomenon at scale by training more than 80 models on data with different corruption levels across three datasets ranging from 30,000 to ≈1.3M samples. We show that it is impossible, at these sample sizes, to match the performance of models trained on clean data when only training on noisy data. Yet, a combination of a small set of clean data (e.g. 10% of the total dataset) and a large set of highly noisy data suffices to reach the performance of models trained solely on similar-size datasets of clean data, and in particular to achieve near state-of-the-art performance. We provide theoretical evidence for our findings by developing novel sample complexity bounds for learning from Gaussian Mixtures with heterogeneous variances. Our theoretical model suggests that, for large enough datasets, the effective marginal utility of a noisy sample is exponentially worse than that of a clean sample. Providing a small set of clean samples can significantly reduce the sample size requirements for noisy data, as we also observe in our experiments.
-```
+
+**Abstract**: The quality of generative models depends on the quality of the data they are trained on. Creating large-scale, high-quality datasets is often expensive and sometimes impossible, e.g. in certain scientific applications where there is no access to clean data due to physical or instrumentation constraints. Ambient Diffusion and related frameworks train diffusion models with solely corrupted data (which are usually cheaper to acquire) but ambient models significantly underperform models trained on clean data. We study this phenomenon at scale by training more than 80 models on data with different corruption levels across three datasets ranging from 30,000 to ≈1.3M samples. We show that it is impossible, at these sample sizes, to match the performance of models trained on clean data when only training on noisy data. Yet, a combination of a small set of clean data (e.g. 10% of the total dataset) and a large set of highly noisy data suffices to reach the performance of models trained solely on similar-size datasets of clean data, and in particular to achieve near state-of-the-art performance. We provide theoretical evidence for our findings by developing novel sample complexity bounds for learning from Gaussian Mixtures with heterogeneous variances. Our theoretical model suggests that, for large enough datasets, the effective marginal utility of a noisy sample is exponentially worse than that of a clean sample. Providing a small set of clean samples can significantly reduce the sample size requirements for noisy data, as we also observe in our experiments.
+
 
 **TLDR**: We show that noisy images can be almost as useful as clean images for training generative models, assuming that a small initial set of clean images is available.
 
@@ -59,8 +59,13 @@ The model parameters can be inferred by the model name. For example, [ambient_la
 
 To generate images from a pre-trained model, you can run:
 ```
-python -m torch.distributed.run --standalone generate.py --seeds=0-49999 --network={checkpoint | huggingface name} --outdir={outdir} --batch={batch_size}
+python -m torch.distributed.run --standalone generate.py \
+    --seeds=0-49999
+    --network={checkpoint | huggingface name}
+    --outdir={outdir}
+    --batch={batch_size}
 ```
+
 ### 🧑‍🏫 Example
 
 For example, you can run:
