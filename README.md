@@ -113,7 +113,7 @@ The codebase can be trivially extended to accomadate different noise level per p
 If you find this work useful for your research, please consider citing our paper:
 
 ```
-@article{ambient_laws,
+@article{daras2024imageworth,
   author    = {Giannis Daras and Yeshwanth Cherapanamjeri and Constantinos Daskalakis},
   title     = {How much is a noisy image worth? Data scaling laws for Ambient Diffusion.},
   journal   = {arXiv preprint arXiv:2411.02780},
